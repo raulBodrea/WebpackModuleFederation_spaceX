@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "concurrently": "^7.2.0"
+  },
+  "scripts": {
+    "start": "concurrently \"cd content && yarn webpack serve\" \"cd flight && yarn webpack serve\" \"cd homepage && yarn webpack serve\" \"cd shell &&  yarn webpack serve\" \"cd boneyard &&  yarn webpack serve\" \"cd marketing &&  yarn webpack serve\"",
+    "install:deps": "concurrently \"cd content && rm -rf node_modules && rm yarn.lock && yarn\" \"cd shell && rm -rf node_modules && rm yarn.lock && yarn\" \"cd boneyard && rm -rf node_modules && rm yarn.lock && yarn\" \"cd homepage && rm -rf node_modules && rm yarn.lock && yarn\" \"cd flight && rm -rf node_modules && rm yarn.lock && yarn\" \"rm -rf node_modules && rm yarn.lock && yarn\" \"cd marketing && rm -rf node_modules && rm yarn.lock && yarn\"",
+    "generate-mfe": "npx create-mf-app && node post-generate.js"
+  },
+  "generatedMfes": [
+    "boneyard",
+    "content",
+    "flight",
+    "homepage",
+    "shell",
+    "marketing"
+  ]
+}
